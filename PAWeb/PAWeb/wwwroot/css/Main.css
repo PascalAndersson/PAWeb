@@ -1,0 +1,62 @@
+﻿body {
+    overflow: auto;
+    font-family: 'helveticaneue-medium';
+}
+
+.textHeader {
+    font-size: 60px;
+    font-weight: bold;
+    font-family: 'helveticaneue-medium';
+}
+
+
+#helloPage {
+    background-color: darkolivegreen;
+    height: 100vh;
+}
+
+#contactPage {
+    color: #F6FFBB;
+    background-color: #F37C5B;
+    height: 100vh;
+    padding: 8%;
+}
+
+.arrowContainer {
+    padding-top: 5%;
+    width: 15%;
+    margin: auto;
+}
+
+.nextPageArrow {
+    font-size: 80px;
+    display: block;
+    text-align: center;
+}
+
+    .nextPageArrow:hover {
+        transition: 1s;
+        margin-top: 5%;
+        transform: scale(1.2);
+    }
+
+@media screen and (max-width: 650px) {
+    .textHeader {
+        font-size: 30px;
+    }
+
+    .nextPageArrow{
+        margin-top: 50%;
+        font-size: 50px;
+    }
+}
+
+@font-face {
+    font-family: 'helveticaneue-medium';
+    src: url('../fonts/helveticaneue-medium.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'helveticaneueultralight';
+    src: url('../fonts/helveticaneueultralight.ttf') format('truetype');
+}

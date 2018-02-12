@@ -1,0 +1,31 @@
+﻿#navBar {
+    color: white;
+    background-color: rgba(0,0,0,0.15);
+    height: 10vh;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+}
+
+#pageTitleName {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#navItems {
+    list-style-type: none;
+    padding-top: 2%;
+    padding-right: 10%;
+    padding-left: 10%;
+    font-size: 15px;
+}
+
+.navBarItem {
+    float: right;
+    text-decoration: none;
+    margin-left: 5%;
+}
+
+/*.navBarItem:hover{
+    color: green;
+}*/
