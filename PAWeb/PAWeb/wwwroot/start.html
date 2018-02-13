@@ -9,6 +9,7 @@
     <link href="css/Navbar.css" rel="stylesheet" />
     <link href="css/About.css" rel="stylesheet" />
     <link href="css/Projects.css" rel="stylesheet" />
+    <link href="css/Contact.css" rel="stylesheet" />
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -103,9 +104,29 @@
     </div>
 
     <div id="contactPage">
-        CONTACT PAGE YO!
-        <p>Paragraf då va</p>
-        <p id="toTopBtn">BUTTON UP!</p>
+        <div id="contentContainer_Contact">
+            <p class="textHeader">Contact.</p>
+            <p id="contactPageDescription">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+            </p>
+            <div id="contactForm">
+                <form>
+                    <div id="inputFields">
+                        <input type="email" id="contactEmail" placeholder=" Email*" />
+                        <input type="text" id="contactSubject" placeholder=" Subject" />
+                    </div>
+                    <div id="messageField">
+                        <textarea type="text" id="contactMessage" placeholder=" Message*"></textarea>
+                    </div>
+                    <button type="submit" id="contactFormButton">Send</button>
+                </form>
+            </div>
+            <div id="linkIcons">
+                <img id="gitHubIcon" src="img/icons/github.png" />
+                <img class="iconDesign" src="img/icons/mail.png" />
+                <img class="iconDesign" src="img/icons/linkedin.png" />
+            </div>
+        </div>
     </div>
 </body>
 </html>
