@@ -42,6 +42,8 @@
 
 .projectWrapper {
     margin-bottom: 10%;
+    border-bottom: solid 1px #F75B46;
+    
 }
 
 .projectTitle {
@@ -60,4 +62,50 @@
     border-radius: 10%;
     border: solid 5px;
     border-color: #F75B46;
+}
+
+@media screen and (max-width: 650px) {
+    .textHeader {
+        font-size: 30px;
+    }
+
+    #contentContainer_Projects{
+        margin-top: 20%;
+    }
+    
+    #projectPageDescription {
+        font-size: 15px;
+    }
+
+    .projectTitle{
+        font-size: 25px;
+        margin-top: 5%;
+    }
+
+    .projectDescription{
+        font-size: 15px;
+        text-align: left;
+    }
+    #projectsContainer {
+        padding: 2%;
+        width: 100%;
+        text-align: center;
+        height: 350px;
+    }
+
+    .projectImage {
+        background: white;
+        height: 130px;
+        width: 150px;
+        border-radius: 7.5%;
+        border: solid 2px;
+        border-color: #F75B46;
+        margin: auto;
+    }
+
+    .projectWrapper {
+        margin-top: 10%;
+        border-top: solid 1px #F75B46;
+        border-bottom: none;
+    }
 }
