@@ -1,0 +1,160 @@
+﻿#contactPage {
+    color: #F6FFBB;
+    background-color: #F37C5B;
+    height: 100vh;
+    padding-top: 6%;
+}
+
+#contentContainer_Contact {  
+    text-align: center;
+    font-family: 'helveticaneueultralight';
+    font-size: 25px;
+    width: 90%;
+    margin: auto;
+}
+
+#contactPageDescription {
+    width: 50%;
+    text-align: left;
+    margin: auto;
+}
+
+#contactForm {
+    padding-top: 2.5%;
+    width: 600px;
+    margin: auto;
+}
+
+.inputField {
+    background-color: #F6FFBB;
+    padding: 3%;
+    color: gray;
+    font-size: 15px;
+    font-family: "helveticaneue-medium";
+    border-radius: 15px;
+}
+
+#contactMessage {
+    overflow-x: hidden;
+    resize: none;
+}
+
+    #contactMessage::-webkit-scrollbar {
+        right: 10%;
+        width: 0.2em;
+    }
+
+    #contactMessage::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        -moz-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+        width: 30px;
+    }
+
+    #contactMessage::-webkit-scrollbar-thumb {
+        background-color: #F37C5B;
+        outline: 1px solid slategrey;
+        border-radius: 10px;
+        background-clip: content-box;
+    }
+
+#contactFormButton {
+    margin-top: 3%;
+    background-color: transparent;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
+    border: 3px solid #F6FFBB;
+    border-radius: 15px;
+    font-weight: bold;
+}
+
+    #contactFormButton:hover {
+        background-color: #F6FFBB;
+        color: #F37C5B;
+    }
+
+#linkIcons {
+    margin-top: 2%;
+    border-top: solid 2px rgba(246, 255, 187, 0.3);
+    margin-left: 5%;
+}
+
+#gitHubIcon {
+    margin-top: 5%;
+    width: 80px;
+    height: 80px;
+    margin-right: 5%;
+    margin-top: 2%;
+}
+
+.iconDesign {
+    width: 90px;
+    height: 90px;
+    margin-right: 5%;
+    margin-top: 2%;
+}
+
+@media screen and (max-width: 650px) {
+    #contactPage{
+        height: 110vh;
+    } 
+    
+    #contentContainer_Contact {
+        padding-top: 15%;
+        padding-bottom: 10%;
+        height: 100vh;
+        text-align: left;
+    }
+
+    #contactPageDescription {
+        font-size: 15px;
+        width: 80%;
+        margin: unset;
+    }
+
+    #contactForm {
+        width: 100%;
+    }
+
+    #submitButton {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #contactFormButton {
+        width: 100%;
+        text-align: center;
+        margin: auto;
+    }
+
+    #linkIcons {
+        margin: 10px;
+        display: list-item;
+        text-align: center;
+        list-style-type: none;
+        margin-top: 10%;
+    }
+
+    #gitHubIcon {
+        margin-top: 5%;
+        margin-left: 6%;
+        margin-right: 7%;
+        width: 50px;
+        height: 50px;
+    }
+
+    .inputField {
+        background-color: #F6FFBB;
+        margin-top: 8%;
+        padding: 5%;
+    }
+
+    .iconDesign {
+        margin-top: 5%;
+        width: 55px;
+        height: 55px;
+    }
+}

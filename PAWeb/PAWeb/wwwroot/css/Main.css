@@ -9,20 +9,7 @@
     font-family: 'helveticaneue-medium';
 }
 
-
-#helloPage {
-    background-color: darkolivegreen;
-    height: 100vh;
-}
-
-#contactPage {
-    color: #F6FFBB;
-    background-color: #F37C5B;
-    height: 100vh;
-    padding: 8%;
-}
-
-.arrowContainer {
+/*.arrowContainer {
     padding-top: 5%;
     width: 15%;
     margin: auto;
@@ -38,7 +25,7 @@
         transition: 1s;
         margin-top: 5%;
         transform: scale(1.2);
-    }
+    }*/
 
 @media screen and (max-width: 650px) {
     .textHeader {

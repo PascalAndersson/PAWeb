@@ -1,5 +1,4 @@
 ﻿
-
 $(function () {
     $("#navBar li").click(function () {
         var idToScroll = checkNavbarId(this.id);
