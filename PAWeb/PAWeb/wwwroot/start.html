@@ -16,6 +16,7 @@
     <script src="js/Main.js"></script>
 </head>
 <body>
+    <!--Navbar-->
     <div id="navBar">
         <div class="row">
             <div class="col-md-12">
@@ -29,13 +30,8 @@
         </div>
     </div>
 
-    <!--<div id="helloPage">
-        <div class="contentContainer">
-            HELLO PAGE YO!
-            <p>Paragraf då va</p>
-        </div>
-    </div>-->
 
+    <!--About page-->
     <div id="aboutPage">
         <div id="contentContainer_About">
             <div class="row">
@@ -52,6 +48,7 @@
         </div>
     </div>
 
+    <!--Projects page-->
     <div id="projectsPage">
         <div class="row">
             <div id="contentContainer_Projects">
@@ -103,7 +100,8 @@
         </div>
     </div>
 
-    <div id="contactPage">
+    <!--Contact page-->
+    <!--<div id="contactPage">
         <div id="contentContainer_Contact">
             <p class="textHeader">Contact.</p>
             <p id="contactPageDescription">
@@ -121,6 +119,32 @@
                     <button type="submit" id="contactFormButton">Send</button>
                 </form>
             </div>
+
+        </div>
+    </div>-->
+
+    <div id="contactPage">
+        <div id="contentContainer_Contact">
+            <p class="textHeader">Contact.</p>
+            <p id="contactPageDescription">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+            </p>
+            <form>
+                <div id="contactForm">
+                    <div class="form-group">
+                        <input type="email" class="form-control inputField" id="contactEmail" placeholder="Email*">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control inputField" id="contactSubject" placeholder="Subject*">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control inputField" rows="5" placeholder="Message*" id="contactMessage"></textarea>
+                    </div>
+                    <div id="submitButton">
+                        <button type="submit" id="contactFormButton">Send</button>
+                    </div>
+                </div>
+            </form>
             <div id="linkIcons">
                 <img id="gitHubIcon" src="img/icons/github.png" />
                 <img class="iconDesign" src="img/icons/mail.png" />
