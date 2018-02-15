@@ -1,6 +1,7 @@
 ﻿body {
     overflow: auto;
     font-family: 'helveticaneue-medium';
+    font-weight: bold;
 }
 
 .textHeader {

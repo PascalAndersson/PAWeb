@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>PAWeb Admin</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/Admin.js"></script>
+</head>
+<body>
+    <h2>Admin Page</h2>
+    <h4>Add new project</h4>
+
+    <div id="addProjectForm">
+        <form>
+            <label>Project title</label>
+            <br />
+            <input type="text" name="projectTitle" />
+            <br />
+            <label>Project description</label>
+            <br />
+            <textarea name="projectDescription"></textarea>
+            <br />
+            <label>Image</label>
+            <br />
+            <label>Github link</label>
+            <br />
+            <input type="text" name="gitUrl" />
+            <br />
+            <button type="submit" id="projectSubmitButton">Save project</button>
+        </form>
+    </div>
+
+    <div>
+        <ul id="projectsList">
+
+        </ul>
+    </div>
+</body>
+</html>
