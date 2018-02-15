@@ -10,11 +10,25 @@ namespace PAWeb.Entities
 {
     public class DatabaseContext : DbContext
     {
+        public DbSet<Project> Projects { get; set; }
+
         public DatabaseContext(DbContextOptions<DatabaseContext> context) : base(context)
         {
-
+            Database.EnsureCreated();
         }
 
-        public DbSet<Project> Projects { get; set; }
+        public void AddProjectToDb()
+        {
+            var projectToAdd = new Project
+            {
+                Title = "First project",
+                Description = "Long funky description",
+                ImageUrl = "Null va"
+            };
+            
+            Projects.Add(projectToAdd);
+            SaveChanges();
+        }
+
     }
 }

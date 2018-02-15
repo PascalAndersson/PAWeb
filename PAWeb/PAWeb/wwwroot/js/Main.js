@@ -1,5 +1,4 @@
-﻿
-$(function () {
+﻿$(function () {
     $("#navBar li").click(function () {
         var idToScroll = checkNavbarId(this.id);
         scrollToId(idToScroll);
@@ -9,11 +8,11 @@ $(function () {
 function checkNavbarId(id) {
     var clickedId = "";
 
-    if (id == "about" || id == "pageTitleName")
+    if (id === "about" || id === "pageTitleName")
         clickedId = "#aboutPage";
-    else if (id == "projects")
+    else if (id === "projects")
         clickedId = "#projectsPage";
-    else if (id == "contact")
+    else if (id === "contact")
         clickedId = "#contactPage";
     return clickedId;
 }
