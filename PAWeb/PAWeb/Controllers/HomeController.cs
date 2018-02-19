@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PAWeb.Entities;
+using PAWeb.Models;
 
 namespace PAWeb.Controllers
 {
@@ -24,11 +25,17 @@ namespace PAWeb.Controllers
             return Ok(allProjects);
         }
 
-        [Route("addproject")]
+        [HttpPost ,Route("addproject")]
         public IActionResult AddProject()
         {
             context.AddProjectToDb();
             return Ok("Projects added!");
+        }
+
+        [HttpPost, Route("email")]
+        public IActionResult SendEmail(Email email)
+        {
+            return Ok("Email sent");
         }
     }
 }

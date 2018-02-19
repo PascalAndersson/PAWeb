@@ -56,13 +56,13 @@
 }
 
 .projectTitle {
-    font-size: 40px;
+    font-size: 25px;
     font-weight: bold;
     font-family: 'helveticaneue-medium';
 }
 
-.projectDescription {
-}
+/*.projectDescription {
+}*/
 
 .projectImage {
     background: white;

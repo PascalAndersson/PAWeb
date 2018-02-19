@@ -15,6 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="js/Main.js"></script>
     <script src="js/Project.js"></script>
+    <script src="js/Contact.js"></script>
 </head>
 <body>
     <!--Navbar-->
@@ -78,16 +79,16 @@
             <form>
                 <div id="contactForm">
                     <div class="form-group">
-                        <input type="email" class="form-control inputField" id="contactEmail" placeholder="Email*">
+                        <input type="email" class="form-control inputField" id="contactEmail" name="contactEmail" placeholder="Email*">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control inputField" id="contactSubject" placeholder="Subject*">
+                        <input type="text" class="form-control inputField" id="contactSubject" name="contactSubject" placeholder="Subject*">
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control inputField" rows="5" placeholder="Message*" id="contactMessage"></textarea>
+                        <textarea class="form-control inputField" rows="5" placeholder="Message*" name="contactMessage" id="contactMessage"></textarea>
                     </div>
                     <div id="submitButton">
-                        <button type="submit" id="contactFormButton">Send</button>
+                        <button id="contactFormButton">Send</button>
                     </div>
                 </div>
             </form>
