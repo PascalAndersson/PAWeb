@@ -51,5 +51,12 @@ namespace PAWeb.Controllers
 
             return Ok($"Project: {project.Id} updated.");
         }
+
+        [HttpPost, Route("sendemail")]
+        public IActionResult SendEmail(Email email)
+        {
+            context.ConvertEmailToMailKitAndSendByGmail(email);
+            return Ok("Mail sent");
+        }
     }
 }
