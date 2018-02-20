@@ -23,5 +23,10 @@ namespace PAWeb.Entities
             SaveChanges();
         }
 
+        public Project GetProjectById(int id)
+        {
+            var project = Projects.SingleOrDefault(p => p.Id == id);
+            return project;
+        }
     }
 }

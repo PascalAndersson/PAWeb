@@ -29,7 +29,27 @@ namespace PAWeb.Controllers
         public IActionResult AddProject(Project project)
         {
             context.AddProjectToDb(project);
-            return Ok(project.Title);
+            return Ok($"{project.Title} added.");
+        }
+
+        [HttpDelete, Route("removeproject")]
+        public IActionResult RemoveProject(int id)
+        {
+            var projectToRemove = context.GetProjectById(id);
+
+            context.Remove(projectToRemove);
+            context.SaveChanges();
+
+            return Ok("Project removed.");
+        }
+
+        [HttpPut, Route("editproject")]
+        public IActionResult EditProject(Project project)
+        {
+            context.Update(project);
+            context.SaveChanges();
+
+            return Ok($"Project: {project.Id} updated.");
         }
     }
 }
