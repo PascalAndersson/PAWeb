@@ -22,7 +22,6 @@ function getAllProjects() {
             var html = "";
             allProjects.forEach(function (project) {
                 html += displayAllProjectsAdmin(project);
-                console.log(project);
             });
             $("#projectsList").html(html);
         })

@@ -21,7 +21,7 @@ namespace PAWeb.Controllers
         [HttpGet, Route("getallprojects")]
         public IActionResult GetAllProjects()
         {
-            var allProjects = context.Projects;
+            var allProjects = context.Projects.ToArray();
             return Ok(allProjects);
         }
 

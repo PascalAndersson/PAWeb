@@ -8,6 +8,7 @@ function getAllProjects() {
         method: "GET"
     })
         .done(function (allProjects) {
+            console.log(allProjects);
             var html = "";
             allProjects.forEach(function (project) {
                 html += displayAllProjects(project);
