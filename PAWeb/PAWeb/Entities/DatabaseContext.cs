@@ -17,18 +17,16 @@ namespace PAWeb.Entities
             Database.EnsureCreated();
         }
 
-        public void AddProjectToDb()
+        public void AddProjectToDb(Project projectToAdd)
         {
-            var projectToAdd = new Project
-            {
-                Title = "First project",
-                Description = "Long funky description",
-                ImageUrl = "Null va"
-            };
-            
             Projects.Add(projectToAdd);
             SaveChanges();
         }
 
+        public Project GetProjectById(int id)
+        {
+            var project = Projects.SingleOrDefault(p => p.Id == id);
+            return project;
+        }
     }
 }

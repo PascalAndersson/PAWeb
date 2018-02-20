@@ -8,12 +8,11 @@
 function checkNavbarId(id) {
     var clickedId = "";
 
-    if (id === "about" || id === "pageTitleName")
+    if (id === "pageTitleName")
         clickedId = "#aboutPage";
-    else if (id === "projects")
-        clickedId = "#projectsPage";
-    else if (id === "contact")
-        clickedId = "#contactPage";
+    else
+        clickedId = "#" + id + "Page";
+
     return clickedId;
 }
 

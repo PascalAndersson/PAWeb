@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using PAWeb.Entities;
+using PAWeb.Models;
 
 namespace PAWeb.Controllers
 {
@@ -20,15 +21,35 @@ namespace PAWeb.Controllers
         [HttpGet, Route("getallprojects")]
         public IActionResult GetAllProjects()
         {
-            var allProjects = context.Projects;
+            var allProjects = context.Projects.ToArray();
             return Ok(allProjects);
         }
 
-        [Route("addproject")]
-        public IActionResult AddProject()
+        [HttpPost, Route("addproject")]
+        public IActionResult AddProject(Project project)
         {
-            context.AddProjectToDb();
-            return Ok("Projects added!");
+            context.AddProjectToDb(project);
+            return Ok($"{project.Title} added.");
+        }
+
+        [HttpDelete, Route("removeproject")]
+        public IActionResult RemoveProject(int id)
+        {
+            var projectToRemove = context.GetProjectById(id);
+
+            context.Remove(projectToRemove);
+            context.SaveChanges();
+
+            return Ok("Project removed.");
+        }
+
+        [HttpPut, Route("editproject")]
+        public IActionResult EditProject(Project project)
+        {
+            context.Update(project);
+            context.SaveChanges();
+
+            return Ok($"Project: {project.Id} updated.");
         }
     }
 }

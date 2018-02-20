@@ -11,9 +11,10 @@ using System;
 namespace PAWeb.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20180215185258_Third")]
+    partial class Third
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -28,6 +29,8 @@ namespace PAWeb.Migrations
                     b.Property<string>("Description");
 
                     b.Property<string>("GithubUrl");
+
+                    b.Property<string>("ImageUrl");
 
                     b.Property<string>("Title");
 

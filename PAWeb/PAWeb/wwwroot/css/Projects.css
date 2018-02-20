@@ -3,6 +3,7 @@
     background-color: #F8ECBB;
     height: 100vh;
     padding: 5%;
+    font-weight: bold;
 }
 
 #contentContainer_Projects {
@@ -29,6 +30,7 @@
     border-right: solid;
     border-color: rgba(247, 91, 70, 0.2);
     height: 500px;
+
 }
 
 #projectsContainer::-webkit-scrollbar {
@@ -56,12 +58,13 @@
 }
 
 .projectTitle {
-    font-size: 40px;
+    font-size: 25px;
     font-weight: bold;
     font-family: 'helveticaneue-medium';
 }
 
 .projectDescription {
+    font-size: 20px;
 }
 
 .projectImage {
@@ -97,11 +100,13 @@
     .projectTitle {
         font-size: 25px;
         margin-top: 0;
+        margin-bottom: 0;
     }
 
     .projectDescription {
         font-size: 15px;
         text-align: center;
+
     }
 
     #projectsContainer {
