@@ -25,6 +25,7 @@ $(function () {
         e.preventDefault();
 
         var projectId = $(this).val();
+
         editProject(projectId);
     });
 
@@ -121,6 +122,7 @@ function displayProjectToEdit(id) {
     html += '<form>';
     html += '<input type="text" name="projectTitle" placeholder="Project title" /><br/><br/>';
     html += '<textarea name="projectDescription" placeholder="Description"></textarea><br/><br/>';
+    html += '<input type="file" value="Upload Image /><br/><br/>"'
     html += '<input type="text" name="gitUrl" placeholder="Git Url"/><br/><br/>';
     html += '<button type="submit" id="editFormSubmitButton" value="' + projectToEdit.id + '">Save Changes</button><br/><br/>';
     html += '</form>';
@@ -140,6 +142,6 @@ function populateEditForm(project) {
 // Other class functionality
 
 function getProjectById(id) {
-    var project = allProjects.find(p => p.id === id);
-    return project;
+    var project = $.grep(allProjects, function (e) { return e.id == id; });
+    return project[0];
 }

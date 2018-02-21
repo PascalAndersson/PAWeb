@@ -15,7 +15,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="js/Navbar.js"></script>
     <script src="js/Project.js"></script>
-    <!--<script src="js/Admin.js"></script>-->
+    <script src="js/Contact.js"></script>
 </head>
 <body>
     <!--Navbar-->
@@ -43,9 +43,9 @@
                 <div class="col-md-8">
                     <p class="textHeader">About me.</p>
                     <p>
-                        Welcome to my page. My name is Pascal Andersson and I am 24 years old. I'm studying my senior year to become a Systems Developer in .NET 
-                        at Lernia Yrkeshögskola in Stockholm, Sweden. I Have always been intrested in Web Development and that is why I did my internship 
-                        at Sopra Steria (previously Kentor IT) where I got to work with EPiServer MVC and React.js. 
+                        Welcome to my page. My name is Pascal Andersson and I am 24 years old. I'm studying my senior year to become a Systems Developer in .NET
+                        at Lernia Yrkeshögskola in Stockholm, Sweden. I Have always been intrested in Web Development and that is why I did my internship
+                        at Sopra Steria (previously Kentor IT) where I got to work with EPiServer MVC and React.js.
                     </p>
                 </div>
             </div>
@@ -75,24 +75,27 @@
         <div id="contentContainer_Contact">
             <p class="textHeader">Contact.</p>
             <p id="contactPageDescription">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                Feel free to contact my anytime. I will respond as quickly as possible.
             </p>
-            <form>
-                <div id="contactForm">
+            <div id="contactForm">
+                <form>
                     <div class="form-group">
-                        <input type="email" class="form-control inputField" id="contactEmail" placeholder="Email*">
+                        <input type="email" class="form-control inputField" name="contactEmail" placeholder="Email*" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control inputField" id="contactSubject" placeholder="Subject*">
+                        <input type="text" class="form-control inputField" name="contactSubject" placeholder="Subject*" required>
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control inputField" rows="5" placeholder="Message*" id="contactMessage"></textarea>
+                        <input type="tel" class="form-control inputField" name="contactPhone" placeholder="Phone (Optional)">
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control inputField" rows="3" placeholder="Message*" name="contactMessage" required></textarea>
                     </div>
                     <div id="submitButton">
-                        <button type="submit" id="contactFormButton">Send</button>
+                        <button type="submit" href="#" id="contactFormButton">Send</button>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
             <div id="linkIcons">
                 <a href="https://github.com/PascalAndersson"><img id="gitHubIcon" src="img/icons/github.png" /></a>
                 <img class="iconDesign" src="img/icons/mail.png" />
