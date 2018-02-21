@@ -55,7 +55,7 @@ namespace PAWeb.Entities
 
                 client.Connect("smtp.gmail.com", 587, false);
 
-                client.Authenticate("anderssonpascal@gmail.com", "ChallE93");
+                client.Authenticate("anderssonpascal@gmail.com", "ndejxusjoribkolr");
 
                 client.Send(message);
                 client.Disconnect(true);
