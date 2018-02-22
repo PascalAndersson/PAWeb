@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PAWeb.Entities;
+using PAWeb.Handler;
 using PAWeb.Models;
 
 namespace PAWeb.Controllers
@@ -12,10 +14,12 @@ namespace PAWeb.Controllers
     public class HomeController : Controller
     {
         private readonly DatabaseContext context;
+        private readonly DataHandler dataHandler;
 
-        public HomeController(DatabaseContext context)
+        public HomeController(DatabaseContext context, DataHandler dataHandler)
         {
             this.context = context;
+            this.dataHandler = dataHandler;
         }
 
         [HttpGet, Route("getallprojects")]
@@ -25,37 +29,11 @@ namespace PAWeb.Controllers
             return Ok(allProjects);
         }
 
-        [HttpPost, Route("addproject")]
-        public IActionResult AddProject(Project project)
-        {
-            context.AddProjectToDb(project);
-            return Ok($"{project.Title} added.");
-        }
-
-        [HttpDelete, Route("removeproject")]
-        public IActionResult RemoveProject(int id)
-        {
-            var projectToRemove = context.GetProjectById(id);
-
-            context.Remove(projectToRemove);
-            context.SaveChanges();
-
-            return Ok("Project removed.");
-        }
-
-        [HttpPut, Route("editproject")]
-        public IActionResult EditProject(Project project)
-        {
-            context.Update(project);
-            context.SaveChanges();
-
-            return Ok($"Project: {project.Id} updated.");
-        }
-
+        
         [HttpPost, Route("sendemail")]
         public IActionResult SendEmail(Email email)
         {
-            context.ConvertEmailToMailKitAndSendByGmail(email);
+            dataHandler.ConvertEmailToMailKitAndSendByGmail(email);
             return Ok("Mail sent");
         }
     }

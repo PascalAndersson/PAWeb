@@ -7,11 +7,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MailKit.Net.Smtp;
+using Microsoft.AspNetCore.Http;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
+using PAWeb.Extensions;
+using PAWeb.Handler;
 
 namespace PAWeb.Entities
 {
     public class DatabaseContext : DbContext
     {
+
         public DbSet<Project> Projects { get; set; }
 
         public DatabaseContext(DbContextOptions<DatabaseContext> context) : base(context)
@@ -31,35 +37,13 @@ namespace PAWeb.Entities
             return project;
         }
 
-        public void ConvertEmailToMailKitAndSendByGmail(Email email)
+        public void AddImageUrlToDbProperty(int id, string fileName)
         {
-            string receiver = "anderssonpascal@gmail.com";
+            var project = GetProjectById(id);
+            project.ImageUrl = fileName;
 
-            string date = DateTime.Now.ToShortDateString();
-            string time = DateTime.Now.ToShortTimeString();
-
-            var message = new MimeMessage();
-            message.From.Add(new MailboxAddress("PascalAndersson.com", email.Sender));
-            message.To.Add(new MailboxAddress("Pascal", receiver));
-            message.Subject = email.Subject;
-
-            message.Body = new TextPart("html")
-            {
-                Text = $"<h3>Message from: " + email.Sender + "</h3> <br/> <p>" + email.Message + "</p>"
-
-            };
-
-            using (var client = new SmtpClient())
-            {
-                client.ServerCertificateValidationCallback = (s, c, h, e) => true;
-
-                client.Connect("smtp.gmail.com", 587, false);
-
-                client.Authenticate("anderssonpascal@gmail.com", "ndejxusjoribkolr");
-
-                client.Send(message);
-                client.Disconnect(true);
-            }
+            Update(project);
+            SaveChanges();
         }
     }
 }

@@ -8,7 +8,6 @@ function getAllProjects() {
         method: "GET"
     })
         .done(function (allProjects) {
-            console.log(allProjects);
             var html = "";
             allProjects.forEach(function (project) {
                 html += displayAllProjects(project);
@@ -21,6 +20,7 @@ function getAllProjects() {
 }
 
 function displayAllProjects(project) {
+    //console.log(project.imageUrl);
     var image = checkIfImageUrlIsNull(project.imageUrl);
 
     var html = '<div class="row projectWrapper">';
@@ -28,22 +28,23 @@ function displayAllProjects(project) {
     html += '<p class="projectTitle">' + project.title + '.</p>';
     html += '<p class="projectDescription">' + project.description + "</p>";
     html += '</div>';
-    html += '<div class="col-md-4 projectImage">' + image + '</div>';
+    html += '<div class="col-md-4">';
+    html += '<img class="projectImage" src="img/project_images/' + image + '" alt="Fuck.">';
+    html += '</div >';
     html += '</div>';
 
     return html;
 }
 
 function checkIfImageUrlIsNull(image) {
-    //console.log(image);
+    console.log(image);
     var imageUrl = "";
 
-    if (imageUrl !== null) {
-        console.log("img url is not null");
-        return imageUrl;
+    if (image === null) {
+        imageUrl = "default_img.png";
     }
     else {
-        console.log("imageUrl is null...");
-        imageUrl = "imageUrl is null...";
+        imageUrl = image;
     }
+    return imageUrl;
 }
