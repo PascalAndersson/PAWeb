@@ -29,9 +29,39 @@ $(function () {
         editProject(projectId);
     });
 
+    $(document).on("click", "#saveImageBtn", function (e) {
+        var id = $(this).attr('value');
+
+        var data = new FormData();
+        var files = $("#projectImage").get(0).files;
+        var fileName = id + ".jpg";
+
+        data.append('image', files[0], fileName);
+        editProfileImage(data);
+    });
+
 });
 
 // AJAX Call functions to server.
+
+function editProfileImage(data) {
+    alert(data.fileName);
+    $.ajax({
+        url: "api/admin/image",
+        method: "PUT",
+        contentType: false,
+        processData: false,
+        data: data
+    })
+        .done(function (image) {
+            console.log(image);
+            //imageButtonAnimation("fileUploadSuccessfull", "fa-check");
+        })
+        .fail(function (xhr, status, error) {
+            //imageButtonAnimation("fileUploadFail", "fa-times");
+            console.log(xhr, status, error);
+        });
+}
 
 function getAllProjects() {
     $.ajax({
@@ -39,6 +69,7 @@ function getAllProjects() {
         method: "GET"
     })
         .done(function (allProjectsFromDb) {
+            console.log(allProjectsFromDb);
             var html = "";
             allProjectsFromDb.forEach(function (project) {
                 html += displayAllProjectsAdmin(project);
@@ -53,7 +84,7 @@ function getAllProjects() {
 
 function addProject() {
     $.ajax({
-        url: 'api/home/addproject',
+        url: 'api/admin/addproject',
         method: 'POST',
         data: {
             "Title": $("#addProjectForm [name=projectTitle]").val(),
@@ -72,7 +103,7 @@ function addProject() {
 
 function removeProject(id) {
     $.ajax({
-        url: 'api/home/removeproject',
+        url: 'api/admin/removeproject',
         method: 'DELETE',
         data: { id }
     })
@@ -87,7 +118,7 @@ function removeProject(id) {
 
 function editProject(id) {
     $.ajax({
-        url: 'api/home/editproject',
+        url: 'api/admin/editproject',
         method: 'PUT',
         data: {
             id: id,
@@ -122,7 +153,8 @@ function displayProjectToEdit(id) {
     html += '<form>';
     html += '<input type="text" name="projectTitle" placeholder="Project title" /><br/><br/>';
     html += '<textarea name="projectDescription" placeholder="Description"></textarea><br/><br/>';
-    html += '<input type="file" value="Upload Image /><br/><br/>"'
+    html += '<input type="file" value="Upload Image" id="projectImage"><br/><br/>';
+    html += '<a href="#" id="saveImageBtn" value="' + projectToEdit.id + '">Save image</a><br/><br/>';
     html += '<input type="text" name="gitUrl" placeholder="Git Url"/><br/><br/>';
     html += '<button type="submit" id="editFormSubmitButton" value="' + projectToEdit.id + '">Save Changes</button><br/><br/>';
     html += '</form>';

@@ -70,9 +70,9 @@
 .projectImage {
     background: white;
     height: 180px;
-    width: 200px;
+    width: 220px;
     border-radius: 10%;
-    border: solid 5px;
+    border: solid 3px;
     border-color: #F75B46;
 }
 

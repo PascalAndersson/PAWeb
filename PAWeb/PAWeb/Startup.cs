@@ -11,6 +11,8 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using PAWeb.Models;
 using PAWeb.Entities;
+using PAWeb.Extensions;
+using PAWeb.Handler;
 
 namespace PAWeb
 {
@@ -27,6 +29,8 @@ namespace PAWeb
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddTransient<StringExtensions>();
+            services.AddTransient<DataHandler>();
 
             services.AddDbContext<DatabaseContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));

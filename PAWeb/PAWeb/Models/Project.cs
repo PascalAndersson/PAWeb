@@ -13,8 +13,6 @@ namespace PAWeb.Models
         public string Title { get; set; }
         public string Description { get; set; }
         public string GithubUrl { get; set; }
-
-        [NotMapped]
         public string ImageUrl { get; set; }
     }
 }
