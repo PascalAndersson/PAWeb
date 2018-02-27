@@ -13,6 +13,7 @@ using PAWeb.Models;
 using PAWeb.Entities;
 using PAWeb.Extensions;
 using PAWeb.Handler;
+using Microsoft.AspNetCore.Identity;
 
 namespace PAWeb
 {
@@ -29,11 +30,19 @@ namespace PAWeb
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
             services.AddTransient<StringExtensions>();
             services.AddTransient<DataHandler>();
+            services.AddTransient<UserHandler>();
+
+            services.AddAuthentication();
 
             services.AddDbContext<DatabaseContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddIdentity<ApplicationUser, IdentityRole>()
+                     .AddEntityFrameworkStores<DatabaseContext>()
+                     .AddDefaultTokenProviders();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,8 +53,11 @@ namespace PAWeb
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMvc();
             app.UseStaticFiles();
+
+            app.UseAuthentication();
+
+            app.UseMvc();
         }
     }
 }

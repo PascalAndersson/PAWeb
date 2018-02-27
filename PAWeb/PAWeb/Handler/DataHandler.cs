@@ -1,6 +1,7 @@
 ﻿using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using MimeKit;
 using PAWeb.Entities;
 using PAWeb.Extensions;
@@ -24,6 +25,28 @@ namespace PAWeb.Handler
             this.stringExtensions = stringExtensions;
             this.hostingEnvironment = hostingEnvironment;
             this.databaseContext = databaseContext;
+
+        }
+
+        public void AddProjectToDb(Project projectToAdd)
+        {
+            databaseContext.Projects.Add(projectToAdd);
+            databaseContext.SaveChanges();
+        }
+
+        public Project GetProjectById(int id)
+        {
+            var project = databaseContext.Projects.SingleOrDefault(p => p.Id == id);
+            return project;
+        }
+
+        public void AddImageUrlToDbProperty(int id, string fileName)
+        {
+            var project = GetProjectById(id);
+            project.ImageUrl = fileName;
+
+            databaseContext.Update(project);
+            databaseContext.SaveChanges();
         }
 
         public void ConvertEmailToMailKitAndSendByGmail(Email email)
@@ -71,13 +94,13 @@ namespace PAWeb.Handler
                     image.CopyTo(fileStream);
                 }
 
-                databaseContext.AddImageUrlToDbProperty(id, image.FileName);
+                AddImageUrlToDbProperty(id, image.FileName);
             }
         }
 
         public void DeleteImageIfAlreadyExists(int id, string uploads)
         {
-            var projectToCheck = databaseContext.GetProjectById(id);
+            var projectToCheck = GetProjectById(id);
 
             if (projectToCheck.ImageUrl != null)
             {
@@ -93,6 +116,6 @@ namespace PAWeb.Handler
                 }
             }
                 
-        }
+        } 
     }
 }
