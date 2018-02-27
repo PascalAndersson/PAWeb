@@ -1,9 +1,28 @@
 ﻿var allProjects = [];
 
 $(function () {
+    //var isSignedIn = false;
+
+    //if (isSignedIn === true) {
+    //    $("#signIn").hide();
+    //    $("#adminPage").show();
+    //}
+
+    //else {
+    //    $("#adminPage").hide();
+    //    $("#signIn").show();
+    //}
+
+
     getAllProjects();
 
     // JQuery OnClick functionality for calling AJAX functions
+
+    $("#signInFormButton").click(function () {
+        alert("biafbja");
+        signInAdmin();
+        alert("after");
+    });
 
     $("#projectSubmitButton").click(function () {
         addProject();
@@ -43,6 +62,25 @@ $(function () {
 });
 
 // AJAX Call functions to server.
+
+function signInAdmin() {
+    alert("In signinadmin");
+    $.ajax({
+        url: 'api/admin/signinadmin',
+        method: 'POST',
+        data: {
+            "Username": $("#signInForm [name=userName]").val(),
+            "Password": $("#signInForm [name=password]").val()
+        }
+    })
+        .done(function (result) {
+            alert("yp");
+            console.log(result);
+        })
+        .fail(function (xhr, status, error) {
+            console.log(xhr, status, error);
+        });
+}
 
 function editProfileImage(data) {
     alert(data.fileName);

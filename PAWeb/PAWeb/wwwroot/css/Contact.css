@@ -14,9 +14,10 @@
 }
 
 #contactPageDescription {
-    width: 50%;
+    width: 30%;
     text-align: left;
     margin: auto;
+    text-align: center;
 }
 
 #contactForm {

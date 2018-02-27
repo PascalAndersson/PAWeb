@@ -11,9 +11,10 @@ using System;
 namespace PAWeb.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20180222160813_AddedAppUser")]
+    partial class AddedAppUser
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -143,8 +144,6 @@ namespace PAWeb.Migrations
 
                     b.Property<bool>("EmailConfirmed");
 
-                    b.Property<bool>("IsSignedIn");
-
                     b.Property<bool>("LockoutEnabled");
 
                     b.Property<DateTimeOffset?>("LockoutEnd");
@@ -155,7 +154,7 @@ namespace PAWeb.Migrations
                     b.Property<string>("NormalizedUserName")
                         .HasMaxLength(256);
 
-                    b.Property<string>("Password");
+                    b.Property<int>("Password");
 
                     b.Property<string>("PasswordHash");
 

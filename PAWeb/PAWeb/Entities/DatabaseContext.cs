@@ -12,12 +12,12 @@ using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using PAWeb.Extensions;
 using PAWeb.Handler;
+using Microsoft.AspNetCore.Identity;
 
 namespace PAWeb.Entities
 {
-    public class DatabaseContext : DbContext
+    public class DatabaseContext : IdentityDbContext<ApplicationUser>
     {
-
         public DbSet<Project> Projects { get; set; }
 
         public DatabaseContext(DbContextOptions<DatabaseContext> context) : base(context)
@@ -25,25 +25,11 @@ namespace PAWeb.Entities
             Database.EnsureCreated();
         }
 
-        public void AddProjectToDb(Project projectToAdd)
+        protected override void OnModelCreating(ModelBuilder builder)
         {
-            Projects.Add(projectToAdd);
-            SaveChanges();
+            base.OnModelCreating(builder);
         }
 
-        public Project GetProjectById(int id)
-        {
-            var project = Projects.SingleOrDefault(p => p.Id == id);
-            return project;
-        }
 
-        public void AddImageUrlToDbProperty(int id, string fileName)
-        {
-            var project = GetProjectById(id);
-            project.ImageUrl = fileName;
-
-            Update(project);
-            SaveChanges();
-        }
     }
 }

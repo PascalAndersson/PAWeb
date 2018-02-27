@@ -7,39 +7,48 @@
     <script src="js/Admin.js"></script>
 </head>
 <body>
-    <h2>Admin Page</h2>
-    <h4>Add new project</h4>
-
-    <div id="addProjectForm">
-        <form>
-            <label>Project title</label>
-            <br />
-            <input type="text" name="projectTitle" />
-            <br />
-            <label>Project description</label>
-            <br />
-            <textarea name="projectDescription"></textarea>
-            <br />
-            <label>Github link</label>
-            <br />
-            <input type="text" name="gitUrl" />
-            <br />
-            <button type="submit" id="projectSubmitButton">Save project</button>
+    <div id="signIn">
+        <h4>Log in as admin</h4>
+        <form id="signInForm">
+            <input type="text" name="userName" /><br /><br/>
+            <input type="password" name="password" /><br />
+            <button id="signInFormButton">Log in</button>
         </form>
     </div>
+    <div id="adminPage">
+        <h2>Admin Page</h2>
+        <h4>Add new project</h4>
 
-    <hr />
+        <div id="addProjectForm">
+            <form>
+                <label>Project title</label>
+                <br />
+                <input type="text" name="projectTitle" />
+                <br />
+                <label>Project description</label>
+                <br />
+                <textarea name="projectDescription"></textarea>
+                <br />
+                <label>Github link</label>
+                <br />
+                <input type="text" name="gitUrl" />
+                <br />
+                <button type="submit" id="projectSubmitButton">Save project</button>
+            </form>
+        </div>
 
-    <div>
-        <ul id="projectsList">
+        <hr />
 
-        </ul>
+        <div>
+            <ul id="projectsList"></ul>
+        </div>
+
+        <hr />
+
+        <div id="editForm">
+
+        </div>
     </div>
-
-    <hr /> 
-
-    <div id="editForm">
-
-    </div>
+    
 </body>
 </html>
