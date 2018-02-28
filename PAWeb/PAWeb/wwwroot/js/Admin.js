@@ -1,32 +1,26 @@
 ﻿var allProjects = [];
 
 $(function () {
-    //var isSignedIn = false;
 
-    //if (isSignedIn === true) {
-    //    $("#signIn").hide();
-    //    $("#adminPage").show();
-    //}
-
-    //else {
-    //    $("#adminPage").hide();
-    //    $("#signIn").show();
-    //}
-
+    checkIfClientIsAuthenticated();
 
     getAllProjects();
 
     // JQuery OnClick functionality for calling AJAX functions
 
     $("#signInFormButton").click(function () {
-        alert("biafbja");
+        alert("1");
         signInAdmin();
-        alert("after");
+        alert("2");
     });
 
     $("#projectSubmitButton").click(function () {
         addProject();
     });
+
+    $("#signOutButton").click(function () {
+        signOutAdmin();
+    })
 
     $(document).on("click", ".projectButton", function (e) {
         e.preventDefault();
@@ -63,8 +57,20 @@ $(function () {
 
 // AJAX Call functions to server.
 
+function checkIfClientIsAuthenticated() {
+    $.ajax({
+        url: 'api/admin/checkifclientisauthenticated',
+        method: 'GET',
+    })
+        .done(function (result) {
+            displayAdminPage(result)
+        })
+        .fail(function (xhr, status, error) {
+            console.log(xhr, status, error);
+        });
+}
+
 function signInAdmin() {
-    alert("In signinadmin");
     $.ajax({
         url: 'api/admin/signinadmin',
         method: 'POST',
@@ -74,7 +80,20 @@ function signInAdmin() {
         }
     })
         .done(function (result) {
-            alert("yp");
+            console.log(result);
+        })
+        .fail(function (xhr, status, error) {
+            console.log(xhr, status, error);
+        });
+}
+
+function signOutAdmin() {
+    $.ajax({
+        url: 'api/admin/signoutadmin',
+        method: 'POST',
+    })
+        .done(function (result) {
+            location.reload(true);
             console.log(result);
         })
         .fail(function (xhr, status, error) {
@@ -83,7 +102,6 @@ function signInAdmin() {
 }
 
 function editProfileImage(data) {
-    alert(data.fileName);
     $.ajax({
         url: "api/admin/image",
         method: "PUT",
@@ -92,11 +110,8 @@ function editProfileImage(data) {
         data: data
     })
         .done(function (image) {
-            console.log(image);
-            //imageButtonAnimation("fileUploadSuccessfull", "fa-check");
         })
         .fail(function (xhr, status, error) {
-            //imageButtonAnimation("fileUploadFail", "fa-times");
             console.log(xhr, status, error);
         });
 }
@@ -107,7 +122,6 @@ function getAllProjects() {
         method: "GET"
     })
         .done(function (allProjectsFromDb) {
-            console.log(allProjectsFromDb);
             var html = "";
             allProjectsFromDb.forEach(function (project) {
                 html += displayAllProjectsAdmin(project);
@@ -128,7 +142,6 @@ function addProject() {
             "Title": $("#addProjectForm [name=projectTitle]").val(),
             "Description": $("#addProjectForm [name=projectDescription]").val(),
             "GithubUrl": $("#addProjectForm [name=gitUrl]").val()
-            //"ImageUrl": $("#addProjectForm [name=projectImageUrl]").val()
         }
     })
         .done(function (result) {
@@ -176,11 +189,22 @@ function editProject(id) {
 
 // Display functions for Admin page.
 
+function displayAdminPage(isClientAuthenticated) {
+    console.log(isClientAuthenticated);
+    if (isClientAuthenticated === true) {
+        $("#signIn").hide();
+        $("#adminPage").show();
+    }
+    else {
+        $("#signIn").show();
+        $("#adminPage").hide();
+    }
+}
+
 function displayAllProjectsAdmin(project) {
     var html = '<br /><li>' + project.title + '</li>';
     html += '<button class="projectButton" value="' + project.id + '">Remove</button>';
     html += '<button class="projectButton" value="' + project.id + '">Edit</button><br />';
-    console.log(project.id);
     return html;
 }
 

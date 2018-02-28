@@ -34,6 +34,16 @@ namespace PAWeb.Handler
             databaseContext.SaveChanges();
         }
 
+        public void RemoveProjectFromDb(int id)
+        {
+            var projectToRemove = GetProjectById(id);
+
+            DeleteImageIfItExists(id, Path.Combine(hostingEnvironment.WebRootPath, @"img\project_images"));
+
+            databaseContext.Remove(projectToRemove);
+            databaseContext.SaveChanges();
+        }
+
         public Project GetProjectById(int id)
         {
             var project = databaseContext.Projects.SingleOrDefault(p => p.Id == id);
@@ -88,7 +98,7 @@ namespace PAWeb.Handler
             if (image.Length > 0)
             {
                 var filePath = Path.Combine(uploads, $"{id}{Path.GetExtension(image.FileName)}");
-                DeleteImageIfAlreadyExists(id, uploads);
+                DeleteImageIfItExists(id, uploads);
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
                     image.CopyTo(fileStream);
@@ -98,7 +108,7 @@ namespace PAWeb.Handler
             }
         }
 
-        public void DeleteImageIfAlreadyExists(int id, string uploads)
+        public void DeleteImageIfItExists(int id, string uploads)
         {
             var projectToCheck = GetProjectById(id);
 
