@@ -51,5 +51,13 @@ namespace PAWeb.Handler
             else
                 return userFromDb.IsSignedIn = false;
         }
+
+        async public Task SignOutAdmin(string userName)
+        {
+            var user = await userManager.FindByNameAsync(userName);
+            await signInManager.SignOutAsync();
+            user.IsSignedIn = false;
+            await userManager.UpdateAsync(user);
+        }
     }
 }

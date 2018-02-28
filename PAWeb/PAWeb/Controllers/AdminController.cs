@@ -30,11 +30,13 @@ namespace PAWeb.Controllers
         }
 
         [AllowAnonymous]
-        [HttpGet, Route("signedinuser")]
-        public IActionResult CheckSignedInUser()
+        [HttpGet, Route("checkifclientisauthenticated")]
+        public IActionResult CheckifClientIsAuthenticated()
         {
-            var test = HttpContext.User.Identity.IsAuthenticated;
-            return Ok(HttpContext.User.Identity.Name);
+            if (HttpContext.User.Identity.IsAuthenticated)
+                return Ok(true);
+            else
+                return Unauthorized();
         }
 
         [AllowAnonymous]
@@ -58,6 +60,13 @@ namespace PAWeb.Controllers
 
         }
 
+        [HttpPost, Route("signoutadmin")]
+        async public Task<IActionResult> SignOutAdmin()
+        {
+            await userHandler.SignOutAdmin(HttpContext.User.Identity.Name);
+            return Ok("signed out.");
+        }
+
         [HttpGet, Route("createadmin")]
         async public Task<IActionResult> CreateAdmin()
         {
@@ -75,10 +84,7 @@ namespace PAWeb.Controllers
         [HttpDelete, Route("removeproject")]
         public IActionResult RemoveProject(int id)
         {
-            var projectToRemove = dataHandler.GetProjectById(id);
-
-            context.Remove(projectToRemove);
-            context.SaveChanges();
+            dataHandler.RemoveProjectFromDb(id);
 
             return Ok("Project removed.");
         }
