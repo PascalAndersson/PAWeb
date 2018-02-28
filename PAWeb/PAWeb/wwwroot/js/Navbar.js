@@ -1,9 +1,19 @@
 ﻿$(function () {
+    checkWindowWidth();
+
     $("#navBar li").click(function () {
         var idToScroll = checkNavbarId(this.id);
         scrollToId(idToScroll);
     });
 });
+
+function checkWindowWidth() {
+    var width = $(window).width();
+
+    if (width < 700) {
+        $("#pageTitleName").text("PA");
+    }
+}
 
 function checkNavbarId(id) {
     var clickedId = "";

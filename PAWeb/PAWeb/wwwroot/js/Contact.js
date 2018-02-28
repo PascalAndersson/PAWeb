@@ -2,6 +2,8 @@
     $("#contactFormButton").click(function () {
         sendEmail();
     });
+
+    $("#email2").hide();
 });
 
 function sendEmail() {
@@ -10,6 +12,7 @@ function sendEmail() {
         method: 'POST',
         data: {
             "Sender": $("#contactForm [name=contactEmail]").val(),
+            "CheckSpam": $("#contactForm [name=contactEmail2]").val(),
             "Subject": $("#contactForm [name=contactSubject]").val(),
             "Message": $("#contactForm [name=contactMessage]").val(),
             "Phone": $("#contactForm [name=contactPhone]").val()

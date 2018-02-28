@@ -29,12 +29,17 @@ namespace PAWeb.Controllers
             return Ok(allProjects);
         }
 
-        
+
         [HttpPost, Route("sendemail")]
         public IActionResult SendEmail(Email email)
         {
-            dataHandler.ConvertEmailToMailKitAndSendByGmail(email);
-            return Ok("Mail sent");
+            if (string.IsNullOrEmpty(email.CheckSpam))
+            {
+                dataHandler.ConvertEmailToMailKitAndSendByGmail(email);
+                return Ok("Mail sent");
+            }
+            else
+                return BadRequest();
         }
     }
 }
