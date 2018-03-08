@@ -1,14 +1,13 @@
 ﻿#contactPage {
     color: #F6FFBB;
     background-color: #F37C5B;
-    height: 100vh;
     padding-top: 6%;
 }
 
 #contentContainer_Contact {
     text-align: center;
     font-family: 'helveticaneueultralight';
-    font-size: 25px;
+    font-size: 20px;
     width: 90%;
     margin: auto;
 }
@@ -80,6 +79,7 @@
     margin-top: 2%;
     border-top: solid 2px rgba(246, 255, 187, 0.3);
     margin-left: 5%;
+    padding-bottom: 2.5%;
 }
 
 #gitHubIcon {
@@ -102,9 +102,13 @@
 
 }
 
+#emailBtn:hover {
+    cursor: pointer;
+}
+
 @media screen and (max-width: 650px) {
-    #contactPage{
-        height: 110vh;
+    #contactPage {
+        padding-bottom: 5%;
     } 
 
     #contentContainer_Contact {

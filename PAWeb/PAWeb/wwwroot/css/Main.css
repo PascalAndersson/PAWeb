@@ -2,10 +2,11 @@
     overflow: auto;
     overflow-x: hidden;
     font-family: 'helveticaneue-medium';
+    width: 100vw;
 }
 
 .textHeader {
-    font-size: 60px;
+    font-size: 40px;
     font-weight: bold;
     font-family: 'helveticaneue-medium';
 }
@@ -29,6 +30,10 @@
     }*/
 
 @media screen and (max-width: 650px) {
+    body, html {
+        overflow-x: hidden;
+        width: 100vw;
+    }
     .textHeader {
         font-size: 30px;
     }

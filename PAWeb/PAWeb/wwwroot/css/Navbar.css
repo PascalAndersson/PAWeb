@@ -26,8 +26,23 @@
     float: right;
     text-decoration: none;
     margin-left: 5%;
+    cursor: pointer;
 }
 
-/*.navBarItem:hover{
-    color: green;
-}*/
+@media screen and (max-width: 650px) {
+    #navItems{
+        font-size: 1em;
+    }
+
+    #pageTitleName {
+        padding-top: 5%;
+    }
+
+    .navBarItem {
+        padding-top: 5%;
+    }
+}
+
+    .navBarItem:hover{
+    border-bottom: solid 3px;
+}
