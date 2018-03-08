@@ -20,7 +20,6 @@ function getAllProjects() {
 }
 
 function displayAllProjects(project) {
-    //console.log(project.imageUrl);
     var image = checkIfImageUrlIsNull(project.imageUrl);
 
     var html = '<div class="row projectWrapper">';
@@ -29,7 +28,7 @@ function displayAllProjects(project) {
     html += '<p class="projectDescription">' + project.description + "</p>";
     html += '</div>';
     html += '<div class="col-md-4">';
-    html += '<img class="projectImage" src="img/project_images/' + image + '" alt="Fuck.">';
+    html += '<a href="' + project.githubUrl + '"><img class="projectImage" src="img/project_images/' + image + '" alt="Img not supported in browser.."></a>';
     html += '</div >';
     html += '</div>';
 

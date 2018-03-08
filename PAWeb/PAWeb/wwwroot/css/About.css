@@ -10,10 +10,11 @@
     position: relative;
     width: 90%;
     text-align: left;
-    font-size: 25px;
+    font-size: 20px;
     font-family: 'helveticaneueultralight';
     margin: auto;
     padding: 8%;
+    padding-left: 10%;
 }
 
 #profileImageContainer {
@@ -21,8 +22,8 @@
 
 
 #profileImage {
-    width: 300px;
-    height: 300px;
+    width: 250px;
+    height: 250px;
     -moz-border-radius: 50px;
     -webkit-border-radius: 50px;
     border-radius: 150px;

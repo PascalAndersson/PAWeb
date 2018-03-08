@@ -67,6 +67,7 @@ namespace PAWeb.Controllers
             return Ok("signed out.");
         }
 
+        [AllowAnonymous]
         [HttpGet, Route("createadmin")]
         async public Task<IActionResult> CreateAdmin()
         {

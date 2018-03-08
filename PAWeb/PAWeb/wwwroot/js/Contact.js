@@ -3,8 +3,18 @@
         sendEmail();
     });
 
+    $("#emailBtn").click(function () {
+        $("#contactForm").slideDown('slow', function () {
+            scrollToId('#contactPage');
+        });
+    });
+
+    $("#contactForm").hide();
+
     $("#email2").hide();
-});
+})
+
+
 
 function sendEmail() {
     $.ajax({
