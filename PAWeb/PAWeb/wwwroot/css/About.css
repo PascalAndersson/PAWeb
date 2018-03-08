@@ -17,6 +17,10 @@
     padding-left: 10%;
 }
 
+#aboutDescription_Container{
+    font-weight: bold;
+}
+
 #profileImageContainer {
 }
 
@@ -35,7 +39,7 @@
 }
 
     #profileImage:hover {
-        transition: 1s;
+        transition: all 1s;
         transform: scale(1.1);
     }
 
